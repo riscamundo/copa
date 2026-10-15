@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Typographic stack: architectural display, clean geometric headings, pristine sans body */
+    --font-display: 'Montserrat', 'Poppins', sans-serif;
+    --font-heading: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    /* Signature copacabanabrasil color system */
+    --copa-primary: #ff4d00;
+    --copa-primary-hover: #ff661a;
+    --copa-primary-glow: rgba(255, 77, 0, 0.25);
+    --copa-primary-subtle: rgba(255, 77, 0, 0.08);
+    --copa-primary-border: rgba(255, 77, 0, 0.35);
+
+    /* Backgrounds and surfaces */
+    --copa-bg-dark: #08090c;
+    --copa-surface-dark: #0f1116;
+    --copa-surface-card: #13161d;
+    --copa-surface-border: rgba(255, 255, 255, 0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+}
+
+/* Typographic utility classes matching original PDF */
+.font-display-poster {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+.font-mono-data {
+  font-family: var(--font-mono);
+}
+
+/* Dynamic Brand Utilities */
+.bg-copa-primary {
+  background-color: var(--copa-primary);
+}
+
+.text-copa-primary {
+  color: var(--copa-primary);
+}
+
+.border-copa-primary {
+  border-color: var(--copa-primary);
+}
+
+.bg-copa-subtle {
+  background-color: var(--copa-primary-subtle);
+}
+
+.border-copa-subtle {
+  border-color: var(--copa-primary-border);
+}
+
+.glow-copa {
+  box-shadow: 0 0 25px var(--copa-primary-glow);
+}
+
+/* Custom refined scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--copa-primary, #ff4d00);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes pan-background {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px -1000px;
+  }
+}
+
+.animate-pan-background {
+  animation: pan-background 40s linear infinite;
+  background-size: 1000px 1000px;
+  background-repeat: repeat;
+}
